@@ -100,6 +100,7 @@ enum FixType: String, CaseIterable, Identifiable {
 @MainActor
 final class ClickNFixViewModel: ObservableObject {
     private static let logRetentionDays = 30
+    private static let progressIncrementWhenStartMissing = 0.05
     @Published private(set) var fixStatuses: [FixType: FixExecutionStatus] = [:]
     @Published var selectedFixes = Set(FixType.allCases)
     @Published var terminalOutput = AttributedString("")
@@ -254,7 +255,7 @@ final class ClickNFixViewModel: ObservableObject {
         }
 
         guard let start = currentFixStartedAt else {
-            progress = min(progress + 0.05, 0.95)
+            progress = min(progress + Self.progressIncrementWhenStartMissing, 0.95)
             progressText = "Working…"
             return
         }
@@ -281,7 +282,11 @@ final class ClickNFixViewModel: ObservableObject {
         let attributed = ANSIParser.parse(text)
         terminalOutput += attributed
         if let logFileURL {
-            try? Data(text.utf8).append(to: logFileURL)
+            do {
+                try Data(text.utf8).append(to: logFileURL)
+            } catch {
+                lastMessage = "Log write failed: \(error.localizedDescription)"
+            }
         }
     }
 
