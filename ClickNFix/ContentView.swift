@@ -4,7 +4,7 @@ import SwiftUI
 
 private enum Layout {
     static let terminalToggleAnimationResponse: Double = 0.28
-    static let terminalToggleAnimationDamping: Double = 0.8
+    static let terminalToggleAnimationDampingFraction: Double = 0.8
 }
 
 struct ContentView: View {
@@ -451,7 +451,7 @@ private struct ActionBarView: View {
 
                 Button {
                     withAnimation(.spring(response: Layout.terminalToggleAnimationResponse,
-                                         dampingFraction: Layout.terminalToggleAnimationDamping)) {
+                                         dampingFraction: Layout.terminalToggleAnimationDampingFraction)) {
                         showTerminal.toggle()
                     }
                 } label: {
