@@ -26,6 +26,22 @@ enum FixExecutionStatus: Equatable {
     }
 }
 
+enum FixCategory: String, CaseIterable {
+    case system = "System"
+    case storage = "Storage & Caches"
+    case network = "Network"
+    case cloud = "Cloud"
+
+    var sfSymbol: String {
+        switch self {
+        case .system: return "cpu"
+        case .storage: return "externaldrive"
+        case .network: return "network"
+        case .cloud: return "icloud"
+        }
+    }
+}
+
 enum FixType: String, CaseIterable, Identifiable {
     case finder
     case caches
@@ -46,6 +62,61 @@ enum FixType: String, CaseIterable, Identifiable {
         case .appCrashes: return "Fix App Crashes"
         case .dns: return "Clear DNS Cache"
         case .icloud: return "Fix iCloud Sync"
+        }
+    }
+
+    var fixDescription: String {
+        switch self {
+        case .finder:
+            return "Resets Finder preferences and relaunches Finder to resolve UI glitches and stuck windows."
+        case .caches:
+            return "Removes user app caches to recover disk space and fix stale-data issues."
+        case .permissions:
+            return "Restores correct ownership and permissions on your home directory files."
+        case .launchServices:
+            return "Rebuilds the Launch Services database to fix \"Open With\" menus and default app associations."
+        case .appCrashes:
+            return "Clears crash-related caches and restarts the preference daemon to reduce repeated app crashes."
+        case .dns:
+            return "Flushes the DNS resolver cache and restarts mDNSResponder to fix slow or broken name lookups."
+        case .icloud:
+            return "Restarts iCloud sync agents to resolve stuck uploads, downloads, or missing files."
+        }
+    }
+
+    var sfSymbol: String {
+        switch self {
+        case .finder: return "folder"
+        case .caches: return "trash"
+        case .permissions: return "lock.shield"
+        case .launchServices: return "arrow.clockwise"
+        case .appCrashes: return "exclamationmark.triangle"
+        case .dns: return "network"
+        case .icloud: return "icloud"
+        }
+    }
+
+    var accentColor: String {
+        switch self {
+        case .finder: return "finderBlue"
+        case .caches: return "cachesOrange"
+        case .permissions: return "permGreen"
+        case .launchServices: return "lsIndigo"
+        case .appCrashes: return "crashRed"
+        case .dns: return "dnsTeal"
+        case .icloud: return "icloudBlue"
+        }
+    }
+
+    var category: FixCategory {
+        switch self {
+        case .finder: return .system
+        case .caches: return .storage
+        case .permissions: return .system
+        case .launchServices: return .storage
+        case .appCrashes: return .system
+        case .dns: return .network
+        case .icloud: return .cloud
         }
     }
 
@@ -94,6 +165,10 @@ enum FixType: String, CaseIterable, Identifiable {
         case .icloud:
             return ["~/Library/Application Support/CloudDocs"]
         }
+    }
+
+    static func fixes(for category: FixCategory) -> [FixType] {
+        allCases.filter { $0.category == category }
     }
 }
 

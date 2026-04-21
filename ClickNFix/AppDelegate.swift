@@ -16,7 +16,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         popover.behavior = .transient
-        popover.contentSize = NSSize(width: 480, height: 620)
+        popover.contentSize = NSSize(width: 480, height: 680)
         popover.contentViewController = NSHostingController(rootView: ContentView(viewModel: AppServices.shared.viewModel))
 
         NotificationCenter.default.addObserver(
