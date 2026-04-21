@@ -76,7 +76,8 @@ final class PermissionManager {
 
                 var lineBuffer = [CChar](repeating: 0, count: 4096)
                 while fgets(&lineBuffer, Int32(lineBuffer.count), pipe) != nil {
-                    output(String(cString: lineBuffer))
+                    let bytes = lineBuffer.prefix { $0 != 0 }.map { UInt8(bitPattern: $0) }
+                    output(String(decoding: bytes, as: UTF8.self))
                 }
 
                 let closeStatus = fclose(pipe)

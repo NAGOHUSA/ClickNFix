@@ -41,7 +41,9 @@ final class BackupManager {
 
         guard !paths.isEmpty else { return nil }
 
-        let timestamp = ISO8601DateFormatter().string(from: Date()).replacingOccurrences(of: ":", with: "-")
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd-HHmmss"
+        let timestamp = formatter.string(from: Date())
         let folder = backupRoot.appendingPathComponent("\(fix.rawValue)-\(timestamp)", isDirectory: true)
 
         if !dryRun {

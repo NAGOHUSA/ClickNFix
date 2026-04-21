@@ -117,6 +117,7 @@ final class ClickNFixViewModel: ObservableObject {
     private let scriptExecutor = ScriptExecutor()
     private let backupManager = BackupManager()
     private var logFileURL: URL?
+    private var currentFixStartedAt: Date?
 
     init() {
         FixType.allCases.forEach { fixStatuses[$0] = .idle }
@@ -189,6 +190,7 @@ final class ClickNFixViewModel: ObservableObject {
         fixStatuses[fix] = .running
         progress = 0
         progressText = "\(fix.displayName)…"
+        currentFixStartedAt = Date()
 
         do {
             _ = try backupManager.createBackup(for: fix, paths: fix.backupPaths, dryRun: dryRunMode)
@@ -250,12 +252,20 @@ final class ClickNFixViewModel: ObservableObject {
             return
         }
 
-        progress = min(progress + (1 / max(fallbackDuration, 1)), 0.95)
-        progressText = "~\(Int((1 - progress) * fallbackDuration))s left"
+        guard let start = currentFixStartedAt else {
+            progress = min(progress + 0.05, 0.95)
+            progressText = "Working…"
+            return
+        }
+
+        let elapsed = Date().timeIntervalSince(start)
+        let normalized = max(fallbackDuration, 1)
+        progress = min(elapsed / normalized, 0.95)
+        progressText = "~\(Int(max(normalized - elapsed, 0)))s left"
     }
 
     private static func extractPercentage(_ line: String) -> Double? {
-        let pattern = #"(\\d{1,3})%"#
+        let pattern = #"(\d{1,3})%"#
         guard let regex = try? NSRegularExpression(pattern: pattern) else { return nil }
         let range = NSRange(line.startIndex..<line.endIndex, in: line)
         guard let match = regex.firstMatch(in: line, range: range),
@@ -282,8 +292,9 @@ final class ClickNFixViewModel: ObservableObject {
 
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd-HHmmss"
-        logFileURL = logsDir.appendingPathComponent("run-\(formatter.string(from: Date())).log")
-        FileManager.default.createFile(atPath: logFileURL!.path, contents: nil)
+        let newLogFileURL = logsDir.appendingPathComponent("run-\(formatter.string(from: Date())).log")
+        logFileURL = newLogFileURL
+        FileManager.default.createFile(atPath: newLogFileURL.path, contents: nil)
 
         guard let files = try? FileManager.default.contentsOfDirectory(
             at: logsDir,
