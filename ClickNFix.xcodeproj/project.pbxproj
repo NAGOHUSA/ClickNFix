@@ -1,0 +1,298 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000010000000100000001 /* ClickNFixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000110000000100000001 /* ClickNFixApp.swift */; };
+		A10000020000000100000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000120000000100000001 /* AppDelegate.swift */; };
+		A10000030000000100000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000130000000100000001 /* ContentView.swift */; };
+		A10000040000000100000001 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000140000000100000001 /* ViewModel.swift */; };
+		A10000050000000100000001 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000150000000100000001 /* PermissionManager.swift */; };
+		A10000060000000100000001 /* ScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000160000000100000001 /* ScriptExecutor.swift */; };
+		A10000070000000100000001 /* BackupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000170000000100000001 /* BackupManager.swift */; };
+		A10000080000000100000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10000180000000100000001 /* Assets.xcassets */; };
+		A10000090000000100000001 /* fix_finder.sh in Resources */ = {isa = PBXBuildFile; fileRef = A10000190000000100000001 /* fix_finder.sh */; };
+		A100000A0000000100000001 /* clear_caches.sh in Resources */ = {isa = PBXBuildFile; fileRef = A100001A0000000100000001 /* clear_caches.sh */; };
+		A100000B0000000100000001 /* repair_permissions.sh in Resources */ = {isa = PBXBuildFile; fileRef = A100001B0000000100000001 /* repair_permissions.sh */; };
+		A100000C0000000100000001 /* reset_launch_services.sh in Resources */ = {isa = PBXBuildFile; fileRef = A100001C0000000100000001 /* reset_launch_services.sh */; };
+		A100000D0000000100000001 /* fix_app_crashes.sh in Resources */ = {isa = PBXBuildFile; fileRef = A100001D0000000100000001 /* fix_app_crashes.sh */; };
+		A100000E0000000100000001 /* clear_dns_cache.sh in Resources */ = {isa = PBXBuildFile; fileRef = A100001E0000000100000001 /* clear_dns_cache.sh */; };
+		A100000F0000000100000001 /* fix_icloud_sync.sh in Resources */ = {isa = PBXBuildFile; fileRef = A100001F0000000100000001 /* fix_icloud_sync.sh */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A10000100000000100000001 /* ClickNFix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClickNFix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000110000000100000001 /* ClickNFixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickNFixApp.swift; sourceTree = "<group>"; };
+		A10000120000000100000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A10000130000000100000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A10000140000000100000001 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		A10000150000000100000001 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		A10000160000000100000001 /* ScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptExecutor.swift; sourceTree = "<group>"; };
+		A10000170000000100000001 /* BackupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupManager.swift; sourceTree = "<group>"; };
+		A10000180000000100000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A10000190000000100000001 /* fix_finder.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = fix_finder.sh; sourceTree = "<group>"; };
+		A100001A0000000100000001 /* clear_caches.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clear_caches.sh; sourceTree = "<group>"; };
+		A100001B0000000100000001 /* repair_permissions.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = repair_permissions.sh; sourceTree = "<group>"; };
+		A100001C0000000100000001 /* reset_launch_services.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = reset_launch_services.sh; sourceTree = "<group>"; };
+		A100001D0000000100000001 /* fix_app_crashes.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = fix_app_crashes.sh; sourceTree = "<group>"; };
+		A100001E0000000100000001 /* clear_dns_cache.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clear_dns_cache.sh; sourceTree = "<group>"; };
+		A100001F0000000100000001 /* fix_icloud_sync.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = fix_icloud_sync.sh; sourceTree = "<group>"; };
+		A10000200000000100000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10000210000000100000001 /* ClickNFix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClickNFix.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A10000300000000100000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A10000400000000100000001 = {
+			isa = PBXGroup;
+			children = (
+				A10000410000000100000001 /* ClickNFix */,
+				A10000420000000100000001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A10000410000000100000001 /* ClickNFix */ = {
+			isa = PBXGroup;
+			children = (
+				A10000110000000100000001 /* ClickNFixApp.swift */,
+				A10000120000000100000001 /* AppDelegate.swift */,
+				A10000130000000100000001 /* ContentView.swift */,
+				A10000140000000100000001 /* ViewModel.swift */,
+				A10000150000000100000001 /* PermissionManager.swift */,
+				A10000160000000100000001 /* ScriptExecutor.swift */,
+				A10000170000000100000001 /* BackupManager.swift */,
+				A10000180000000100000001 /* Assets.xcassets */,
+				A10000430000000100000001 /* OptimacOS */,
+				A10000200000000100000001 /* Info.plist */,
+				A10000210000000100000001 /* ClickNFix.entitlements */,
+			);
+			path = ClickNFix;
+			sourceTree = "<group>";
+		};
+		A10000420000000100000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A10000100000000100000001 /* ClickNFix.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A10000430000000100000001 /* OptimacOS */ = {
+			isa = PBXGroup;
+			children = (
+				A10000190000000100000001 /* fix_finder.sh */,
+				A100001A0000000100000001 /* clear_caches.sh */,
+				A100001B0000000100000001 /* repair_permissions.sh */,
+				A100001C0000000100000001 /* reset_launch_services.sh */,
+				A100001D0000000100000001 /* fix_app_crashes.sh */,
+				A100001E0000000100000001 /* clear_dns_cache.sh */,
+				A100001F0000000100000001 /* fix_icloud_sync.sh */,
+			);
+			path = Resources/OptimacOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A10000500000000100000001 /* ClickNFix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000600000000100000001 /* Build configuration list for PBXNativeTarget "ClickNFix" */;
+			buildPhases = (
+				A10000700000000100000001 /* Sources */,
+				A10000300000000100000001 /* Frameworks */,
+				A10000800000000100000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClickNFix;
+			productName = ClickNFix;
+			productReference = A10000100000000100000001 /* ClickNFix.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A10000900000000100000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A10000500000000100000001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = A10000A00000000100000001 /* Build configuration list for PBXProject "ClickNFix" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A10000400000000100000001;
+			productRefGroup = A10000420000000100000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A10000500000000100000001 /* ClickNFix */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A10000800000000100000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000080000000100000001 /* Assets.xcassets in Resources */,
+				A10000090000000100000001 /* fix_finder.sh in Resources */,
+				A100000A0000000100000001 /* clear_caches.sh in Resources */,
+				A100000B0000000100000001 /* repair_permissions.sh in Resources */,
+				A100000C0000000100000001 /* reset_launch_services.sh in Resources */,
+				A100000D0000000100000001 /* fix_app_crashes.sh in Resources */,
+				A100000E0000000100000001 /* clear_dns_cache.sh in Resources */,
+				A100000F0000000100000001 /* fix_icloud_sync.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A10000700000000100000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000100000001 /* ClickNFixApp.swift in Sources */,
+				A10000020000000100000001 /* AppDelegate.swift in Sources */,
+				A10000030000000100000001 /* ContentView.swift in Sources */,
+				A10000040000000100000001 /* ViewModel.swift in Sources */,
+				A10000050000000100000001 /* PermissionManager.swift in Sources */,
+				A10000060000000100000001 /* ScriptExecutor.swift in Sources */,
+				A10000070000000100000001 /* BackupManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A10000B00000000100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ClickNFix/ClickNFix.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClickNFix/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.optimacos.ClickNFix;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A10000B10000000100000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ClickNFix/ClickNFix.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClickNFix/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.optimacos.ClickNFix;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A10000C00000000100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A10000C10000000100000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A10000A00000000100000001 /* Build configuration list for PBXProject "ClickNFix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000C00000000100000001 /* Debug */,
+				A10000C10000000100000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000600000000100000001 /* Build configuration list for PBXNativeTarget "ClickNFix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000B00000000100000001 /* Debug */,
+				A10000B10000000100000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A10000900000000100000001 /* Project object */;
+}
