@@ -18,6 +18,6 @@ xcodebuild \
   CODE_SIGN_IDENTITY="-" \
   build
 
-codesign --force --sign - --deep --timestamp=none "$APP_PATH"
+codesign --force --sign - --timestamp=none "$APP_PATH"
 
 echo "Ad-hoc signed app built at $APP_PATH"

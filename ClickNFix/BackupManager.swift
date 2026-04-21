@@ -1,3 +1,4 @@
+import CryptoKit
 import Foundation
 
 enum BackupError: LocalizedError {
@@ -103,8 +104,7 @@ final class BackupManager {
     }
 
     private func safePath(_ fullPath: String) -> String {
-        fullPath
-            .replacingOccurrences(of: "/", with: "_")
-            .trimmingCharacters(in: CharacterSet(charactersIn: "_"))
+        let digest = SHA256.hash(data: Data(fullPath.utf8))
+        return digest.map { String(format: "%02x", $0) }.joined()
     }
 }

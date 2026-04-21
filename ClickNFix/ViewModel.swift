@@ -99,6 +99,7 @@ enum FixType: String, CaseIterable, Identifiable {
 
 @MainActor
 final class ClickNFixViewModel: ObservableObject {
+    private static let logRetentionDays = 30
     @Published private(set) var fixStatuses: [FixType: FixExecutionStatus] = [:]
     @Published var selectedFixes = Set(FixType.allCases)
     @Published var terminalOutput = AttributedString("")
@@ -302,7 +303,7 @@ final class ClickNFixViewModel: ObservableObject {
             options: [.skipsHiddenFiles]
         ) else { return }
 
-        let cutoff = Date().addingTimeInterval(-30 * 24 * 60 * 60)
+        let cutoff = Calendar.current.date(byAdding: .day, value: -Self.logRetentionDays, to: Date()) ?? Date.distantPast
         for file in files {
             if let values = try? file.resourceValues(forKeys: [.contentModificationDateKey]),
                let modified = values.contentModificationDate,
