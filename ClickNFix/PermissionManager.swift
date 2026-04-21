@@ -38,7 +38,10 @@ final class PermissionManager {
         var rightItem = AuthorizationItem(name: kAuthorizationRightExecute, valueLength: 0, value: nil, flags: 0)
         var rights = AuthorizationRights(count: 1, items: &rightItem)
         let flags: AuthorizationFlags = [.interactionAllowed, .extendRights, .preAuthorize]
-        let status = AuthorizationCopyRights(authorizationRef!, &rights, nil, flags, nil)
+        guard let ref = authorizationRef else {
+            throw PermissionError.authorizationFailed(errAuthorizationInvalidRef)
+        }
+        let status = AuthorizationCopyRights(ref, &rights, nil, flags, nil)
         guard status == errAuthorizationSuccess else {
             throw PermissionError.authorizationFailed(status)
         }
@@ -54,9 +57,13 @@ final class PermissionManager {
                 defer { cArgs.forEach { free($0) } }
 
                 var pipe: UnsafeMutablePointer<FILE>?
+                guard let ref = self.authorizationRef else {
+                    continuation.resume(throwing: PermissionError.authorizationFailed(errAuthorizationInvalidRef))
+                    return
+                }
                 let status = path.withCString { toolPath in
                     AuthorizationExecuteWithPrivileges(
-                        self.authorizationRef!,
+                        ref,
                         toolPath,
                         [],
                         &cArgs,

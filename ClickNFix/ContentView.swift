@@ -2,6 +2,11 @@ import SwiftUI
 
 // MARK: - Main Content View
 
+private enum Layout {
+    static let terminalToggleAnimationResponse: Double = 0.28
+    static let terminalToggleAnimationDamping: Double = 0.8
+}
+
 struct ContentView: View {
     @ObservedObject var viewModel: ClickNFixViewModel
     @State private var pendingFix: FixType?
@@ -445,7 +450,8 @@ private struct ActionBarView: View {
                 .help("View last log file")
 
                 Button {
-                    withAnimation(.spring(response: 0.28, dampingFraction: 0.8)) {
+                    withAnimation(.spring(response: Layout.terminalToggleAnimationResponse,
+                                         dampingFraction: Layout.terminalToggleAnimationDamping)) {
                         showTerminal.toggle()
                     }
                 } label: {

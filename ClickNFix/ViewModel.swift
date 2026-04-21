@@ -96,18 +96,6 @@ enum FixType: String, CaseIterable, Identifiable {
         }
     }
 
-    var accentColor: String {
-        switch self {
-        case .finder: return "finderBlue"
-        case .caches: return "cachesOrange"
-        case .permissions: return "permGreen"
-        case .launchServices: return "lsIndigo"
-        case .appCrashes: return "crashRed"
-        case .dns: return "dnsTeal"
-        case .icloud: return "icloudBlue"
-        }
-    }
-
     var category: FixCategory {
         switch self {
         case .finder: return .system
